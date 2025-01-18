@@ -1,6 +1,7 @@
 import React from 'react'
 import { useForm } from "react-hook-form"
 import axios from "axios"
+import {Link} from "react-router-dom"
 
 const Login = () => {
 
@@ -29,7 +30,7 @@ const Login = () => {
           <button className='bg-gray-600 py-2 px-4 rounded-sm' type='submit'>Login </button>
           <div className='my-2'>
             <span>Doesn't have an account ? </span>
-            <button className='bg-gray-600 py-[1px] px-2 rounded-md' type='submit'>Sign Up </button>
+            <Link to={"/signup"} className='bg-gray-600 py-[1px] px-2 rounded-md' type='submit'>Sign Up </Link>
           </div>
         </div>
 

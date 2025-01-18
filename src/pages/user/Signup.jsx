@@ -1,7 +1,7 @@
 import React from 'react'
 import { useForm } from "react-hook-form"
 import axios from "axios"
-
+import { Link } from 'react-router-dom'
 
 
 
@@ -55,7 +55,13 @@ const Signup = () => {
                     <input accept="image/png, image/jpeg" className='cursor-text outline-none p-2 text-red-500 rounded-sm' type="file" {...register("profilePicture", { required: false })} />
                     {errors.profilePicture && <span className='text-red-500 text-sm'>Profile image is required</span>}
 
-                    <input type="submit" />
+                    <div className='flex flex-col'>
+                        <button className='bg-gray-600 py-2 px-4 rounded-sm' type='submit'>Sign Up </button>
+                        <div className='my-2'>
+                            <span>Already have an account ? Try logging in </span>
+                            <Link to={"/login"} className='bg-gray-600 py-[1px] px-2 rounded-md' type='submit'>Login</Link>
+                        </div>
+                    </div>
                 </form>
             </div>
         </>
