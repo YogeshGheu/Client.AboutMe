@@ -1,14 +1,18 @@
 import React from 'react'
 import { useForm } from 'react-hook-form'
 import axios from "axios"
+import { useNavigate } from 'react-router-dom'
 
 const Otp = () => {
+    const navigate = useNavigate()
     const { register, handleSubmit, setError, formState: { errors } } = useForm()
 
     const onSubmit = async (data) => {
         try {
             axios.post("/app/api/user/verify/create", data).then((response) => {
-                console.log(response.data)
+                if (response.data.status === "ok") {
+                    navigate("/account/creation/confirmation")
+                } else return;
             })
         } catch (error) {
             console.error(error)

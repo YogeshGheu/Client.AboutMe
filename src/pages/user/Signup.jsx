@@ -1,27 +1,33 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useForm } from "react-hook-form"
 import axios from "axios"
 import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 
 
 const Signup = () => {
+    const navigate = useNavigate()
     const { register, handleSubmit, setError, formState: { errors } } = useForm()
+    const [userExistsError, setUserExistsError] = useState(false)
 
     const onSubmit = async (data) => {
-        console.log(data)
         if (data.password !== data.confirmPassword) {
             setError('confirmPassword', { type: 'manual', message: 'Passwords do not match' });
         } else {
-            try {
-                axios.post("/app/api/user/data/collect", data)
-                    .then((response) => {
-                        console.log(response.data)
-                    })
+            axios.post("/app/api/user/data/collect", data)
+                .then((response) => {
+                    if(response.data.status === "ok"){
+                        navigate("/create-user/verify/otp")
+                    } else return
 
-            } catch (error) {
-                console.log("Error Occured: ", error)
-            }
+                }).catch((error) => {
+                    console.error(error)
+                    if (error.response.status === 409) {
+                        setUserExistsError(true)
+                        return
+                    } else return
+                })
         }
     }
 
@@ -52,10 +58,11 @@ const Signup = () => {
                     <input defaultValue={"Yogesh@123"} className='cursor-text outline-none p-2 text-black rounded-sm' type="password" placeholder={"Confirm Password"} {...register("confirmPassword", { required: "Confirm Password is required" })} />
                     {errors.password && <span className='text-red-500 text-sm'>Password is required</span> || errors.confirmPassword && <span className='text-red-500 text-sm'>{errors.confirmPassword.message}</span>}
 
-                    <input accept="image/png, image/jpeg" className='cursor-text outline-none p-2 text-red-500 rounded-sm' type="file" {...register("profilePicture", { required: false })} />
+                    <input accept="image/png, image/jpeg" className='cursor-text outline-none p-2 rounded-sm' type="file" {...register("profilePicture", { required: false })} />
                     {errors.profilePicture && <span className='text-red-500 text-sm'>Profile image is required</span>}
 
                     <div className='flex flex-col'>
+                        {userExistsError && <span className='text-red-500'>Username already exists!</span>}
                         <button className='bg-gray-600 py-2 px-4 rounded-sm' type='submit'>Sign Up </button>
                         <div className='my-2'>
                             <span>Already have an account ? Try logging in </span>

@@ -8,6 +8,7 @@ import Aboutpage from "./pages/Aboutpage.jsx"
 import Login from "./pages/user/Login.jsx"
 import Signup from './pages/user/Signup.jsx';
 import Otp from './pages/user/Otp.jsx';
+import AccountConfirmation from './pages/user/AccountConfirmation.jsx';
 
 
 
@@ -18,6 +19,11 @@ createRoot(document.getElementById('root')).render(
         <Route path="/login" element={<Login />} />
         <Route path="/create-user/verify/otp" element={<Otp />} />
         <Route path="/signup" element={<Signup />} />
+        <Route path='/account/creation/confirmation' element={<AccountConfirmation/>}/>
+        <Route path='/' element={<App />}>
+          <Route index element={<Homepage />} />
+          <Route path={"/about"} element={<Homepage />} />
+        </Route>
       </Routes>
     </BrowserRouter>
   </StrictMode>,
