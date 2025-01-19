@@ -36,6 +36,7 @@ const Login = () => {
         <div className='flex flex-col'>
           {invalidCredError && <span className='text-red-500'>Invalid Credentials!</span>}
           <button className='bg-gray-600 py-2 px-4 rounded-sm' type='submit'>Login </button>
+          <Link to={"/account/password-reset"} className='text-blue-500 text-sm my-2'>Forgot password?</Link>
           <div className='my-2'>
             <span>Doesn't have an account ? </span>
             <Link to={"/signup"} className='bg-gray-600 py-[1px] px-2 rounded-md' type='submit'>Sign Up </Link>
