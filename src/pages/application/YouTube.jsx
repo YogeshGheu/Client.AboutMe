@@ -1,11 +1,11 @@
 import React from 'react'
 
-const Footer = () => {
+const YouTube = () => {
   return (
     <div>
-      Footer
+      You tube
     </div>
   )
 }
 
-export default Footer
+export default YouTube
