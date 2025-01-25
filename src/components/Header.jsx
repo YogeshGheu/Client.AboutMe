@@ -31,7 +31,7 @@ const Header = () => {
           <nav className='bg-slate-900 flex flex-row gap-12'>
             <NavLink to={"/"}>Home</NavLink>
             <NavLink to={"/about"}>About</NavLink>
-            <NavLink to={"/youtube"}>YouTube</NavLink>
+            <NavLink to={"/youtube/channel"}>YouTube</NavLink>
           </nav>
         </div>
 

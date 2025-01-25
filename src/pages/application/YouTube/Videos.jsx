@@ -1,11 +1,11 @@
 import React from 'react'
 
-const YouTube = () => {
+const Videos = () => {
   return (
     <div>
-      You tube
+      Videos
     </div>
   )
 }
 
-export default YouTube
+export default Videos
