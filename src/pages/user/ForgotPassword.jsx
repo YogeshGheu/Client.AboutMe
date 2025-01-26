@@ -16,7 +16,7 @@ const ForgotPassword = () => {
             if (!sent) {
                 axios.post("/app/api/user/password/reset/request", data)
                     .then((response) => {
-                        if (response.data.status === "ok") setSent(true)
+                        if (response.data.status === 200) setSent(true)
                     })
                     .catch((error) => {
                         console.error(error)
@@ -24,7 +24,7 @@ const ForgotPassword = () => {
             } else if (sent) {
                 axios.post("/app/api/user/password/reset/verify", data)
                     .then((response) => {
-                        if (response.data.status === "ok") {
+                        if (response.data.status === 200) {
                             setSuccess(true)
                         }
                     })

@@ -13,7 +13,7 @@ const Login = () => {
   const onSubmit = (data) => {
 
     axios.post("/app/api/user/login", data).then((response) => {
-      if (response.data.status === "ok") {
+      if (response.data.status === 200) {
         navigate("/")
       } else return
     }).catch((error) => {
@@ -28,10 +28,10 @@ const Login = () => {
     <div>
       <form className='flex flex-col h-fit w-fit p-20 gap-y-2 bg-gray-800' onSubmit={handleSubmit(onSubmit)} action="">
         <h1 className='text-4xl text-center bg-gray-800 my-8'>AboutMe Login</h1>
-        <input defaultValue={"Yogesh"} className='cursor-text outline-none p-2 text-black rounded-sm' type="text" placeholder={"Username"} {...register("username", { required: true })} />
+        <input defaultValue={"YogeshGheu"} className='cursor-text outline-none p-2 text-black rounded-sm' type="text" placeholder={"Username"} {...register("username", { required: true })} />
         {errors.username && <span className='text-red-500 text-sm'>Username is required</span>}
 
-        <input defaultValue={"Yogesh@123"} className='cursor-text outline-none p-2 text-black rounded-sm' type="password" placeholder={"Password"} {...register("password", { required: true })} />
+        <input defaultValue={"Yogesh"} className='cursor-text outline-none p-2 text-black rounded-sm' type="password" placeholder={"Password"} {...register("password", { required: true })} />
         {errors.password && <span className='text-red-500 text-sm'>Password is required</span>}
         <div className='flex flex-col'>
           {invalidCredError && <span className='text-red-500'>Invalid Credentials!</span>}

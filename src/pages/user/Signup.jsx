@@ -17,7 +17,7 @@ const Signup = () => {
         } else {
             axios.post("/app/api/user/data/collect", data)
                 .then((response) => {
-                    if(response.data.status === "ok"){
+                    if(response.data.status === 200){
                         navigate("/create-user/verify/otp")
                     } else return
 
