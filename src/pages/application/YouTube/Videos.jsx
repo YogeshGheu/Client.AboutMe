@@ -31,7 +31,7 @@ const Videos = () => {
       {allVideos?.map((videoObj) => {
         const uploadTime = new Date(videoObj.snippet.publishedAt)
 
-        return <a target='_blank' href={`https://www.youtube.com/watch?v=${videoObj.snippet.resourceId.videoId}&list=LL`} key={videoObj.id.videoId} className='p-[10px] w-[340px] overflow-x-hidden overflow-y-scroll h-[287px] border-2 rounded-md border-slate-700'>
+        return <a target='_blank' href={`https://www.youtube.com/watch?v=${videoObj.snippet.resourceId.videoId}&list=LL`} key={videoObj.id.videoId} className='p-[10px] w-[340px] overflow-x-hidden overflow-y-scroll h-[287px] border-2 rounded-md border-slate-700 mx-1 my-2'>
           <div style={{ backgroundImage: `url(${videoObj.snippet.thumbnails.medium.url})`, backgroundSize: "cover", backgroundPosition: "center" }} className=' w-[320px] h-[180px] rounded-sm border border-red-400'>
           </div>
           <div className='px-2 py-[2px] rounded-md bg-slate-700 w-[320px] my-2'>
