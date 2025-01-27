@@ -31,7 +31,7 @@ const Login = () => {
         <input defaultValue={"YogeshGheu"} className='cursor-text outline-none p-2 text-black rounded-sm' type="text" placeholder={"Username"} {...register("username", { required: true })} />
         {errors.username && <span className='text-red-500 text-sm'>Username is required</span>}
 
-        <input defaultValue={"Yogesh"} className='cursor-text outline-none p-2 text-black rounded-sm' type="password" placeholder={"Password"} {...register("password", { required: true })} />
+        <input defaultValue={"Yogesh@123"} className='cursor-text outline-none p-2 text-black rounded-sm' type="password" placeholder={"Password"} {...register("password", { required: true })} />
         {errors.password && <span className='text-red-500 text-sm'>Password is required</span>}
         <div className='flex flex-col'>
           {invalidCredError && <span className='text-red-500'>Invalid Credentials!</span>}

@@ -10,7 +10,7 @@ const Otp = () => {
     const onSubmit = async (data) => {
         try {
             axios.post("/app/api/user/verify/create", data).then((response) => {
-                if (response.data.status === 200) {
+                if (response.data.status === 201) {
                     navigate("/account/creation/confirmation")
                 } else return;
             })

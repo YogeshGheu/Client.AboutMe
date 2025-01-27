@@ -17,7 +17,7 @@ import Videos from "./pages/application/YouTube/Videos.jsx"
 
 
 createRoot(document.getElementById('root')).render(
-  <StrictMode>
+  
     <BrowserRouter>
       <Routes>
         <Route path="/login" element={<Login />} />
@@ -30,7 +30,7 @@ createRoot(document.getElementById('root')).render(
           <Route index element={<Homepage />} />
           <Route path={"/about"} element={<Aboutpage />} />
 
-          <Route path={"/youtube/"} element={<YouTube />}>
+          <Route path={"/youtube"} element={<YouTube />}>
             {/* <Route index element={<Channel />} /> */}
             <Route path='channel' element={<Channel />} />
             <Route path='videos' element={<Videos />} />
@@ -39,5 +39,5 @@ createRoot(document.getElementById('root')).render(
         </Route>
       </Routes>
     </BrowserRouter>
-  </StrictMode>,
+  
 )
